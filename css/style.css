@@ -3,13 +3,19 @@
     font-family: 'Roboto', sans-serif;
 }
 
-main{
-    position: relative;
+body{
+    height: 100%;
 }
+
 
 h1{
     font-size: 34px;
     font-weight: 700;
+    text-align: center;
+}
+
+h2{
+    font-size: 30px;
     text-align: center;
 }
 
@@ -21,7 +27,6 @@ h3{
 
 p{
     font-size: 22px;
-    font-weight: 400;
     padding-top: 15px;
 }
 
@@ -29,14 +34,26 @@ p{
     max-width: 1400px;
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: wrap;
 }
 
 .Add{
-    position: absolute;
-    bottom: 1;
-    right: 0;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+
+}
+
+.Add img{
+    width: 100px;
+    height: 100px;
+}
+
+.Add button{
+    font-size: 100px;
+    background-color: rgb(238, 241, 245);
+
 }
 
 .card{
@@ -55,13 +72,13 @@ p{
 }
 
 .scroll{
-    height: 250px;
+    height: 220px;
     overflow: auto;
     padding: 15px;
     line-height: 1.15;
 }
 
-select{
+.card select{
     height: 50px;
 }
 
