@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+main{
+    position: relative;
+}
+
+h1{
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+}
+
+h3{
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 8px;
+}
+
+p{
+    font-size: 22px;
+    font-weight: 400;
+    padding-top: 15px;
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Add{
+    position: absolute;
+    bottom: 1;
+    right: 0;
+}
+
+.card{
+    position: relative;
+    
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    margin: 15px;
+}
+
+.title{
+    height: 50px;
+}
+
+.scroll{
+    height: 250px;
+    overflow: auto;
+    padding: 15px;
+    line-height: 1.15;
+}
+
+select{
+    height: 50px;
+}
+
+.card button{
+    position: absolute;
+    border-radius: 8px;
+    width: 130px;
+    height: 40px;
+    padding: 10px;
+    bottom: 10px;
+}
+
+.change{
+    right: 10px;
+}
+
+.remove{
+    left: 10px;
+}
+
+option,select,button,label{
+    text-align: center;
+    font-size: 18px;
+}
