@@ -7,6 +7,7 @@ let form = document.querySelector(".pop-up");
 let Inputtitle = document.getElementById("title");
 let InputText = document.getElementById("description");
 let Select = document.querySelector("#priority");
+let CloseForm = document.querySelector("close-button")
 let cards;
 
 
@@ -76,9 +77,12 @@ addCard.addEventListener("click",()=>{
     cards.push(new Card(Inputtitle.value,InputText.value, Select.value))
     updateLocal();
     Show();
-    form.style.opacity = 0;
-    form.style.visibility = "hidden";
+    turnOffDisplay();
 })
 
 
+const turnOffDisplay = ()=>{
+    form.style.opacity = 0;
+    form.style.visibility = "hidden";
+}
     

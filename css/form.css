@@ -64,3 +64,17 @@ label{
     color: white;
     cursor: pointer;
 }
+
+
+
+.close{
+    position: relative;
+}
+
+.close-button{
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    background: none;
+    color: rgb(124, 12, 12);
+}
