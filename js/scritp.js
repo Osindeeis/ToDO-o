@@ -1,11 +1,12 @@
 "use strict"
 
-const toDo = document.querySelector(".container")
-const openForm = document.querySelector(".Add")
-const addCard = document.querySelector(".AddCard")
-let form = document.querySelector(".pop-up")
+const toDo = document.querySelector(".container");
+const openForm = document.querySelector(".Add");
+const addCard = document.querySelector(".AddCard");
+let form = document.querySelector(".pop-up");
 let Inputtitle = document.getElementById("title");
 let InputText = document.getElementById("description");
+let Select = document.querySelector("#priority");
 let cards;
 
 
@@ -16,16 +17,15 @@ else{
     cards=[]
 }
 
-
-
 openForm.addEventListener("click", function () {
     form.style.opacity = 1;
     form.style.visibility = "visible";
 })
 
-function Card(title, description) {
+function Card(title, description, Select) {
     this.title = title;
     this.description = description;
+    this.Select = Select;
     this.complete = false;
 }
 
@@ -37,19 +37,23 @@ const CreateCard = (card, index) => {
     <p class="scroll">${card.description}</p>
     <label>Приоритет:
         <select>
-            <option>Низкий</option>
-            <option>Средний</option>
-            <option>Высокий</option>
+            <option>${card.Select}</option>
         </select>
     <label>
 
     <div class="card__row">
-        <button class="remove">Удалить</button>
+        <button onClick='removeLocal(${index})' class="remove">Удалить</button>
         <button class="change">Изменить</button>
     </div>
     
     </div>
     `
+}
+
+const removeLocal = (index)=>{
+    cards.splice(index,1);
+    updateLocal();
+    Show();
 }
 
 const Show = ()=>{
@@ -67,11 +71,14 @@ const updateLocal = ()=>{
     localStorage.setItem("card",JSON.stringify(cards))
 }
 
-addCard.addEventListener("click",function(){
-    cards.push(new Card(Inputtitle.value,InputText.value))
+
+addCard.addEventListener("click",()=>{
+    cards.push(new Card(Inputtitle.value,InputText.value, Select.value))
     updateLocal();
     Show();
     form.style.opacity = 0;
     form.style.visibility = "hidden";
 })
+
+
     
