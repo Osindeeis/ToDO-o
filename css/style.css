@@ -89,14 +89,17 @@ p{
     height: 40px;
     padding: 10px;
     bottom: 10px;
+    background-color: inherit;
 }
 
 .change{
     right: 10px;
+    color: rgb(61, 221, 46);
 }
 
 .remove{
     left: 10px;
+    color: rgb(255, 29, 29);
 }
 
 option,select,button,label{
@@ -111,3 +114,4 @@ option,select,button,label{
 .High, .High Select{
     background-color: rgb(247, 125, 125);
 }
+

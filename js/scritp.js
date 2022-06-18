@@ -33,28 +33,32 @@ function Card(title, description, Select) {
 const CreateCard = (card, index) => {
     return `
     <div class="card ${card.Select}">
-    <h3 class="title">${card.title}</h3>
-    <hr/>
-    <p class="scroll">${card.description}</p>
-    <label>Приоритет:
-        <select>
-            <option>${card.Select}</option>
-        </select>
-    <label>
+        <h3 class="title">${card.title}</h3>
+        <hr/>
+        <p class="scroll">${card.description}</p>
+        <label>Приоритет:
+            <select>
+                <option>${card.Select}</option>
+            </select>
+        <label>
 
-    <div class="card__row">
-        <button onClick='removeLocal(${index})' class="remove">Удалить</button>
-        <button class="change">Изменить</button>
-    </div>
+        <div class="card__row">
+            <button onClick='removeLocal(${index})' class="remove">Удалить</button>
+            <button class="change">Изменить</button>
+        </div>
     
     </div>
     `
 }
 
 const removeLocal = (index)=>{
-    cards.splice(index,1);
-    updateLocal();
-    Show();
+    let Question = confirm("Вы действительно хотите удалить запись?")
+    if(Question==1){
+        cards.splice(index,1);
+        updateLocal();
+        Show();
+    } 
+    
 }
 
 const Show = ()=>{
