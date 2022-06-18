@@ -103,3 +103,11 @@ option,select,button,label{
     text-align: center;
     font-size: 18px;
 }
+
+.Middle, .Middle Select{
+    background-color: rgb(248, 248, 143);
+}
+
+.High, .High Select{
+    background-color: rgb(247, 125, 125);
+}

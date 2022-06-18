@@ -32,7 +32,7 @@ function Card(title, description, Select) {
 
 const CreateCard = (card, index) => {
     return `
-    <div class="card">
+    <div class="card ${card.Select}">
     <h3 class="title">${card.title}</h3>
     <hr/>
     <p class="scroll">${card.description}</p>
