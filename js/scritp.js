@@ -30,6 +30,13 @@ function Card(title, description, Select) {
     this.complete = false;
 }
 
+const FilterCard =()=>{
+    const LowPriority = cards.length && cards.filter(item => item.Select =="Low")
+    const MiddlePriority = cards.length && cards.filter(item => item.Select =="Middle")
+    const HighPriority = cards.length && cards.filter(item => item.Select =="High")
+    cards = [...HighPriority,...MiddlePriority,...LowPriority]
+}
+
 const CreateCard = (card, index) => {
     return `
     <div class="card ${card.Select}">
@@ -63,7 +70,9 @@ const removeLocal = (index)=>{
 
 const Show = ()=>{
     toDo.innerHTML=""
+    
     if(cards.length>0){
+        FilterCard()
         cards.forEach((item,index) => {
             toDo.innerHTML += CreateCard(item,index); 
         });
