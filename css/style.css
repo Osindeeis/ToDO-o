@@ -3,25 +3,21 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body{
-    height: 100%;
+h1,h2{
+    text-align: center;
 }
 
-
 h1{
-    font-size: 34px;
-    font-weight: 700;
-    text-align: center;
+    font-size: 48px;
+    padding-top: 20px;
 }
 
 h2{
     font-size: 30px;
-    text-align: center;
 }
 
 h3{
     font-size: 28px;
-    font-weight: 700;
     padding-top: 8px;
 }
 
@@ -34,7 +30,6 @@ p{
     max-width: 1400px;
     margin: auto;
     display: flex;
-    justify-content: start;
     flex-wrap: wrap;
 }
 
@@ -42,7 +37,6 @@ p{
     position: fixed;
     bottom: 20px;
     right: 30px;
-
 }
 
 .Add img{
@@ -50,61 +44,51 @@ p{
     height: 100px;
 }
 
-.Add button{
-    font-size: 100px;
-    background-color: rgb(238, 241, 245);
-
-}
-
 .card{
     position: relative;
-    
     width: 300px;
     height: 400px;
+    margin: 15px;
     text-align: center;
     background-color: white;
     border-radius: 8px;
-    margin: 15px;
 }
 
 .title{
     height: 50px;
+    padding-top: 10px;
 }
 
 .scroll{
     height: 220px;
-    overflow: auto;
     padding: 15px;
+    overflow: auto;
     line-height: 1.15;
 }
 
-.card select{
-    height: 50px;
+.priority{
+    display: inline-block;
+    padding-bottom: 30px;
 }
 
 .card button{
-    position: absolute;
-    border-radius: 8px;
+    
     width: 130px;
     height: 40px;
     padding: 10px;
     bottom: 10px;
-    background-color: inherit;
-}
-
-.change{
-    right: 10px;
-    color: rgb(61, 221, 46);
+    font-size: 18px;
+    border-radius: 8px;
 }
 
 .remove{
-    left: 10px;
-    color: rgb(255, 29, 29);
+    color: rgb(245, 31, 31);
+    transition: all 0.2s ease-in-out;
 }
 
-option,select,button,label{
-    text-align: center;
-    font-size: 18px;
+.remove:hover{
+    color: rgb(133, 23, 23);
+    transform: scale(1.1);
 }
 
 .Middle, .Middle Select{
@@ -114,4 +98,3 @@ option,select,button,label{
 .High, .High Select{
     background-color: rgb(247, 125, 125);
 }
-
