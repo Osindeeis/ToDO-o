@@ -68,7 +68,10 @@ p{
 
 .priority{
     display: inline-block;
-    padding-bottom: 30px;
+}
+
+.date{
+    font-size: 14px;
 }
 
 .card button{

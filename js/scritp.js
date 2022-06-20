@@ -9,12 +9,26 @@ let InputText = document.getElementById("description");
 let Select = document.querySelector("#priority");
 let CloseForm = document.querySelector("close-button")
 let cards;
+let DateNow = new Date();
+
+const FormatDate =()=>{
+    const date = DateNow.getDate().toString().padStart(2, "0");
+	const month = (DateNow.getMonth() + 1).toString().padStart(2, "0");
+	const year = DateNow.getFullYear();
+
+	const h = DateNow.getHours().toString().padStart(2, "0");
+	const m = DateNow.getMinutes().toString().padStart(2, "0");
+    const s = DateNow.getSeconds().toString().padStart(2,"0");
+
+	return `${date}.${month}.${year}, ${h}ч ${m}м ${s}с`
+}
+
 
 if(localStorage.card){
     cards = JSON.parse(localStorage.getItem("card"))
 }
 else{
-    cards=[]
+    cards = []
 }
 
 openForm.addEventListener("click", function () {
@@ -22,14 +36,15 @@ openForm.addEventListener("click", function () {
     form.style.visibility = "visible";
 })
 
-function Card(title, description, Select) {
+function Card(title, description, Select, Date) {
     this.title = title;
     this.description = description;
     this.Select = Select;
+    this.Date=Date;
     this.complete = false;
 }
 
-const FilterCard =()=>{
+const FilterCard = () => {
     const LowPriority = cards.length && cards.filter(item => item.Select =="Low")
     const MiddlePriority = cards.length && cards.filter(item => item.Select =="Middle")
     const HighPriority = cards.length && cards.filter(item => item.Select =="High")
@@ -45,6 +60,7 @@ const CreateCard = (card, index) => {
         <label>Приоритет:
             <p class="priority">${card.Select}</p>
         </label>
+            <p class="date">${card.Date}</p>
         <div class="card__row">
             <button onClick='removeLocal(${index})' class="remove">Удалить</button>
         </div>
@@ -52,18 +68,18 @@ const CreateCard = (card, index) => {
     `
 }
 
-const removeLocal = (index)=>{
+const removeLocal = (index) => {
     let Question = confirm("Вы действительно хотите удалить запись?")
-    if(Question==1){
+    if(Question == 1){
         cards.splice(index,1);
         updateLocal();
         Show();
     } 
 }
 
-const Show = ()=>{
-    toDo.innerHTML="" 
-    if(cards.length>0){
+const Show = () => {
+    toDo.innerHTML = "" 
+    if(cards.length > 0){
         FilterCard()
         cards.forEach((item,index) => {
             toDo.innerHTML += CreateCard(item,index); 
@@ -73,18 +89,18 @@ const Show = ()=>{
 
 Show();
 
-const updateLocal = ()=>{
+const updateLocal = () => {
     localStorage.setItem("card",JSON.stringify(cards))
 }
 
-addCard.addEventListener("click",()=>{
-    cards.push(new Card(Inputtitle.value,InputText.value, Select.value))
+addCard.addEventListener("click", () => {
+    cards.push(new Card(Inputtitle.value,InputText.value, Select.value, FormatDate()))
     updateLocal();
     Show();
     turnOffDisplay();
 })
 
-const turnOffDisplay = ()=>{
+const turnOffDisplay = () => {
     form.style.opacity = 0;
     form.style.visibility = "hidden";
 }
