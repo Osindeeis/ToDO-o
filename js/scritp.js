@@ -3,6 +3,7 @@
 const toDo = document.querySelector(".container");
 const openForm = document.querySelector(".Add");
 const addCard = document.querySelector(".AddCard");
+const title = document.querySelector(".Title");
 let form = document.querySelector(".pop-up");
 let Inputtitle = document.getElementById("title");
 let InputText = document.getElementById("description");
@@ -23,6 +24,14 @@ const FormatDate =()=>{
 	return `${date}.${month}.${year}, ${h}ч ${m}м ${s}с`
 }
 
+const CreateTitle = () =>{
+    if(cards.length <= 0 && JSON.parse(localStorage.getItem("card")) <=0){
+        title.innerHTML = `<h1>Список задач пуст</h1>`
+    }
+    else{
+        title.innerHTML = `<h1>Список задач</h1>`
+    }
+}
 
 if(localStorage.card){
     cards = JSON.parse(localStorage.getItem("card"))
@@ -74,7 +83,7 @@ const removeLocal = (index) => {
         cards.splice(index,1);
         updateLocal();
         Show();
-    } 
+    }
 }
 
 const Show = () => {
@@ -85,6 +94,7 @@ const Show = () => {
             toDo.innerHTML += CreateCard(item,index); 
         });
     }
+    CreateTitle()
 }
 
 Show();
