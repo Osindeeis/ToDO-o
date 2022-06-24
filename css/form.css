@@ -76,3 +76,28 @@ label{
     background: none;
     color: rgb(124, 12, 12);
 }
+
+@media (max-width:673px){
+    input{
+        width: 170px;
+        height: 30px;
+        font-size: 14px; 
+    }
+
+    textarea{
+        width: 170px;
+        height: 150px;
+        font-size: 14px;
+    }
+
+    .pop-up__form{
+        margin-top: 50px;   
+        padding: 0px;
+        padding-bottom: 10px;
+    }
+
+    .close-button{
+        top: 15px;
+        right: 20px;
+    }
+}

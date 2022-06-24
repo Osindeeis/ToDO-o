@@ -27,10 +27,11 @@ p{
 }
 
 .container{
-    max-width: 1400px;
+    max-width: 1350px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    padding-top: 30px;
 }
 
 .Add{
@@ -100,4 +101,16 @@ p{
 
 .High, .High Select{
     background-color: rgb(247, 125, 125);
+}
+
+@media (max-width:985px){
+    .container{
+        max-width: 700px;
+    } 
+}
+
+@media (max-width:673px){
+    .container{
+        max-width: 330px;
+    } 
 }
