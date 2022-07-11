@@ -27,13 +27,13 @@
                 <div class="pop-up__form">
                     <form action="#">
                         <div class="close">
-                            <button class="close-button" onclick="turnOffDisplay()">X</button>
+                            <button class="close-button" onclick="Display(0,'hidden')">X</button>
                         </div>
 
                         <label for="title">Заголовок</label>
-                        <input type="text" name="title" id="title">
+                        <input type="text" name="title" id="title" placeholder="Заголовок">
                         <label for="description">Описание</label>
-                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Описание"></textarea>
                         <label for="priority">Приоритет</label>
                         <select name="priority" id="priority">
                             <option value="Low">низкий</option>

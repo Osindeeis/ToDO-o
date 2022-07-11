@@ -25,12 +25,24 @@ h2{
 
 input,textarea,form select,label{
     display: block;
-    margin: auto;
     margin-top: 10px;
     text-align: center;
     font-size: 22px;
     border-radius: 20px; 
 }
+
+input:hover,textarea:hover{
+    transform: scale(1.05);
+}
+
+input:focus,textarea:focus{
+    transform: scale(1.05);
+}
+
+select:hover{
+    cursor: pointer;
+}
+
 
 input{
     opacity: .9;

@@ -41,8 +41,7 @@ else{
 };
 
 openForm.addEventListener("click", ()=> {
-    form.style.opacity = 1;
-    form.style.visibility = "visible";
+    Display(1,"visible");
 });
 
 function Card(title, description, Select, Date) {
@@ -50,7 +49,6 @@ function Card(title, description, Select, Date) {
     this.description = description;
     this.Select = Select;
     this.Date=Date;
-    this.complete = false;
 };
 
 const FilterCard = () => {
@@ -69,7 +67,7 @@ const CreateCard = (card, index) => {
         <label>Приоритет:
             <p class="priority">${card.Select}</p>
         </label>
-            <p class="date">${card.Date}</p>
+            <p class="date">Дата: ${card.Date}</p>
         <div class="card__row">
             <button onClick='removeLocal(${index})' class="remove">Удалить</button>
         </div>
@@ -113,13 +111,13 @@ addCard.addEventListener("click", () => {
     cards.push(new Card(Inputtitle.value,InputText.value, Select.value, FormatDate()))
     updateLocal();
     Show();
-    turnOffDisplay();
+    Display(0,"hidden");
     
 
 });
 
-const turnOffDisplay = () => {
-    form.style.opacity = 0;
-    form.style.visibility = "hidden";
-};
+const Display =(opacity,visibility)=>{
+    form.style.opacity = opacity;
+    form.style.visibility = visibility;
+}
     

@@ -45,8 +45,12 @@ p{
     height: 100px;
 }
 
+/*Полностью переписать дизайн карточек*/
+
 .card{
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 300px;
     height: 400px;
     margin: 15px;
@@ -56,19 +60,22 @@ p{
 }
 
 .title{
+    overflow: auto;
     height: 50px;
-    padding-top: 10px;
+    font-size: 22px;
 }
 
 .scroll{
     height: 220px;
     padding: 15px;
+    margin: auto;
     overflow: auto;
     line-height: 1.15;
 }
 
 .priority{
     display: inline-block;
+    align-items: flex-end;
 }
 
 .date{
@@ -88,7 +95,7 @@ p{
 .remove{
     color: rgb(245, 31, 31);
     transition: all 0.2s ease-in-out;
-}
+} 
 
 .remove:hover{
     color: rgb(133, 23, 23);
