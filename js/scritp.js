@@ -4,6 +4,7 @@ const toDo = document.querySelector(".container");
 const openForm = document.querySelector(".Add");
 const addCard = document.querySelector(".AddCard");
 const title = document.querySelector(".Title");
+const Error = document.querySelector(".Error");
 let form = document.querySelector(".pop-up");
 let Inputtitle = document.getElementById("title");
 let InputText = document.getElementById("description");
@@ -19,31 +20,30 @@ const FormatDate =()=>{
 
 	const h = DateNow.getHours().toString().padStart(2, "0");
 	const m = DateNow.getMinutes().toString().padStart(2, "0");
-    const s = DateNow.getSeconds().toString().padStart(2,"0");
 
-	return `${date}.${month}.${year}, ${h}ч ${m}м ${s}с`
-}
+	return `${date}.${month}.${year}, ${h}ч ${m}м`;
+};
 
 const CreateTitle = () =>{
-    if(cards.length <= 0 && JSON.parse(localStorage.getItem("card")) <=0){
-        title.innerHTML = `<h1>Список задач пуст</h1>`
+    if(cards.length <= 0 && JSON.parse(localStorage.getItem("card")) <= 0){
+        title.innerHTML = `<h1>Список задач пуст</h1>`;
     }
     else{
-        title.innerHTML = `<h1>Список задач</h1>`
+        title.innerHTML = `<h1>Список задач</h1>`;
     }
-}
+};
 
 if(localStorage.card){
-    cards = JSON.parse(localStorage.getItem("card"))
+    cards = JSON.parse(localStorage.getItem("card"));
 }
 else{
-    cards = []
-}
+    cards = [];
+};
 
-openForm.addEventListener("click", function () {
+openForm.addEventListener("click", ()=> {
     form.style.opacity = 1;
     form.style.visibility = "visible";
-})
+});
 
 function Card(title, description, Select, Date) {
     this.title = title;
@@ -51,14 +51,14 @@ function Card(title, description, Select, Date) {
     this.Select = Select;
     this.Date=Date;
     this.complete = false;
-}
+};
 
 const FilterCard = () => {
-    const LowPriority = cards.length && cards.filter(item => item.Select =="Low")
-    const MiddlePriority = cards.length && cards.filter(item => item.Select =="Middle")
-    const HighPriority = cards.length && cards.filter(item => item.Select =="High")
-    cards = [...HighPriority,...MiddlePriority,...LowPriority]
-}
+    const LowPriority = cards.length && cards.filter(item => item.Select =="Low");
+    const MiddlePriority = cards.length && cards.filter(item => item.Select =="Middle");
+    const HighPriority = cards.length && cards.filter(item => item.Select =="High");
+    cards = [...HighPriority,...MiddlePriority,...LowPriority];
+};
 
 const CreateCard = (card, index) => {
     return `
@@ -75,7 +75,7 @@ const CreateCard = (card, index) => {
         </div>
     </div>
     `
-}
+};
 
 const removeLocal = (index) => {
     let Question = confirm("Вы действительно хотите удалить запись?")
@@ -84,34 +84,42 @@ const removeLocal = (index) => {
         updateLocal();
         Show();
     }
-}
+};
 
 const Show = () => {
     toDo.innerHTML = "" 
     if(cards.length > 0){
-        FilterCard()
+        FilterCard();
         cards.forEach((item,index) => {
             toDo.innerHTML += CreateCard(item,index); 
         });
     }
-    CreateTitle()
-}
+    CreateTitle();
+};
 
 Show();
 
 const updateLocal = () => {
-    localStorage.setItem("card",JSON.stringify(cards))
-}
+    localStorage.setItem("card",JSON.stringify(cards));
+};
 
 addCard.addEventListener("click", () => {
+    
+    if(InputText.value=='' || Inputtitle.value == ''){
+        Error.innerHTML = "Поля пустые";
+        return  
+    }
+
     cards.push(new Card(Inputtitle.value,InputText.value, Select.value, FormatDate()))
     updateLocal();
     Show();
     turnOffDisplay();
-})
+    
+
+});
 
 const turnOffDisplay = () => {
     form.style.opacity = 0;
     form.style.visibility = "hidden";
-}
+};
     

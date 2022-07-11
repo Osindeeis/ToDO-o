@@ -77,7 +77,12 @@ label{
     color: rgb(124, 12, 12);
 }
 
-@media (max-width:673px){
+.Error{
+    text-align: center;
+    color: red;
+}
+
+@media screen and (max-width:673px){
     input{
         width: 170px;
         height: 30px;

@@ -103,13 +103,13 @@ p{
     background-color: rgb(247, 125, 125);
 }
 
-@media (max-width:985px){
+@media screen and (max-width:985px){
     .container{
         max-width: 700px;
     } 
 }
 
-@media (max-width:673px){
+@media screen and (max-width:673px){
     .container{
         max-width: 330px;
     } 
